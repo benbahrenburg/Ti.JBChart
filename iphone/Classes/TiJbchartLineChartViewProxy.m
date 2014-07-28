@@ -1,5 +1,5 @@
 /**
- * Ti.JBChart
+ * Ti.JBChart (https://github.com/benbahrenburg/Ti.JBChart)
  *
  * Titanium code Copyright (c) 2009-2014 by Ben Bahrenburg. All Rights Reserved.
  * Licensed under the terms of the Apache 2.0 License
