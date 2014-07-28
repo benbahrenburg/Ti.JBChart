@@ -15,7 +15,6 @@
 
 @implementation TiJbchartLineChartView
 
-
 // Numerics
 CGFloat const kJBLineChartViewControllerChartHeaderPadding = 20.0f;
 CGFloat const kJBLineChartViewControllerChartSolidLineWidth = 6.0f;
@@ -27,7 +26,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _selectionBarColor = [UIColor whiteColor];
 }
 
--(BOOL) hasToolTip:(NSUInteger)index
+-(BOOL)hasToolTip:(NSUInteger)index
 {
     if(_tooltipData == nil){
         return NO;
@@ -38,6 +37,11 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     }
 
     return YES;
+}
+
+-(void)reloadData:(id)unused
+{
+    [self.lineChart reloadData];
 }
 
 -(void)setSelectionBarColor_:(id)color
@@ -83,42 +87,34 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _colorForLineColors = [NSArray arrayWithArray:value];
 }
 
--(void)setFillColor_:(id)value
+
+-(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
-	ENSURE_TYPE_OR_NIL(value,NSArray);
-    _colorForFillColors = [NSArray arrayWithArray:value];
+
+    if(colorsToQuery == nil){
+        return defColor;
+    }
+
+    if(([colorsToQuery count] == 0)||([colorsToQuery count] < (index+1))){
+        return defColor;
+    }
+
+    return [[TiUtils colorValue:[colorsToQuery objectAtIndex:index]] _color];
+
 }
 
--(UIColor *)findSelectionColorForLineColor:(NSUInteger)index
+-(NSInteger)findLineStyle:(NSUInteger)index
 {
-    UIColor * defaultColor = [UIColor blueColor];
-
-    if(_selectionColorForLineColors == nil){
-        return defaultColor;
+    if(_lineStyles == nil){
+        return JBLineChartViewLineStyleSolid;
     }
 
-    if(([_selectionColorForLineColors count] == 0)||([_selectionColorForLineColors count] < (index+1))){
-        return defaultColor;
+    if(([_lineStyles count] == 0)||([_lineStyles count] < (index+1))){
+        return JBLineChartViewLineStyleSolid;
     }
 
-    return [[TiUtils colorValue:[_selectionColorForLineColors objectAtIndex:index]] _color];
+    return [TiUtils floatValue:[_lineStyles objectAtIndex:index]];
 }
-
--(UIColor *)findColorForLineColor:(NSUInteger)index
-{
-    UIColor * defaultColor = [UIColor blackColor];
-
-    if(_colorForLineColors == nil){
-        return defaultColor;
-    }
-
-    if(([_colorForLineColors count] == 0)||([_colorForLineColors count] < (index+1))){
-        return defaultColor;
-    }
-
-    return [[TiUtils colorValue:[_colorForLineColors objectAtIndex:index]] _color];
-}
-
 
 - (void)setTooltipVisible:(BOOL)tooltipVisible animated:(BOOL)animated atTouchPoint:(CGPoint)touchPoint
 {
@@ -267,7 +263,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findColorForLineColor:lineIndex];
+   return [self findForColor:lineIndex withColorArray:_colorForLineColors withDefaultColor:[UIColor blackColor]];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
@@ -308,35 +304,27 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findSelectionColorForLineColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:[UIColor blueColor]];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-   return [self findSelectionColorForLineColor:lineIndex];
+   return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:[UIColor blueColor]];
 }
 
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    if(_lineStyles == nil){
-        return JBLineChartViewLineStyleSolid;
-    }
-
-    if(([_lineStyles count] == 0)||([_lineStyles count] < (lineIndex+1))){
-        return JBLineChartViewLineStyleSolid;
-    }
-
-    return [TiUtils floatValue:[_lineStyles objectAtIndex:lineIndex]];
+    return [self findLineStyle:lineIndex];
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return lineIndex == JBLineChartViewLineStyleDashed;
+    return [self findLineStyle:lineIndex] == JBLineChartViewLineStyleDashed;
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView smoothLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return lineIndex == JBLineChartViewLineStyleSolid;
+    return [self findLineStyle:lineIndex] == JBLineChartViewLineStyleSolid;
 }
 
 #pragma mark - Overrides

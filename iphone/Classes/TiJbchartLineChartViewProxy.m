@@ -11,7 +11,29 @@
 
 #import "TiJbchartLineChartViewProxy.h"
 #import "TiUtils.h"
+#import "TiJbchartLineChartView.h"
 
 @implementation TiJbchartLineChartViewProxy
+
+-(NSArray *)keySequence
+{
+    return [NSArray arrayWithObjects:
+            @"data",
+            @"toolTipData",
+            @"selectionBarColor",
+            @"selectedLineColor",
+            @"lineWidth",
+            @"lineColor",
+            @"lineStyles",
+            nil];
+}
+
+-(void)reloadData:(id)unused
+{
+  	if ([self viewAttached])
+	{
+		TiThreadPerformOnMainThread(^{[(TiJbchartLineChartView*)[self view] reloadData:unused];}, NO);
+	}
+}
 
 @end

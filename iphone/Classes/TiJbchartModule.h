@@ -11,8 +11,9 @@
 
 #import "TiModule.h"
 
-@interface TiJbchartModule : TiModule
-{
-}
+@interface TiJbchartModule : TiModule{}
+
+extern int const kBBAreaSmooth;
+extern int const kBBAreaDotted;
 
 @end

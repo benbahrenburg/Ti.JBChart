@@ -12,6 +12,8 @@
 #import "TiJbchartAreaChartView.h"
 #import "JBConstants.h"
 #import "TiViewProxy.h"
+#import "TiJbchartModule.h"
+
 @implementation TiJbchartAreaChartView
 
 // Numerics
@@ -30,6 +32,11 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     }
 
     return YES;
+}
+
+-(void)reloadData:(id)unused
+{
+    [self.lineChart reloadData];
 }
 
 -(void)initializeState
@@ -88,64 +95,38 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     _colorForFillColors = [NSArray arrayWithArray:value];
 }
 
--(UIColor *)findSelectionColorForLineColor:(NSUInteger)index
+-(void)setAreaStyles_:(id)value
 {
-    UIColor * defaultColor = kJBColorAreaChartDefaultSunSelectedLineColor;
-
-    if(_selectionColorForLineColors == nil){
-        return defaultColor;
-    }
-
-    if(([_selectionColorForLineColors count] == 0)||([_selectionColorForLineColors count] < (index+1))){
-        return defaultColor;
-    }
-
-    return [[TiUtils colorValue:[_selectionColorForLineColors objectAtIndex:index]] _color];
+	ENSURE_TYPE_OR_NIL(value,NSArray);
+    _areaStyles = [NSArray arrayWithArray:value];
 }
 
--(UIColor *)findSelectionColorForFillColor:(NSUInteger)index
+-(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
-    UIColor * defaultColor = kJBColorAreaChartDefaultSunSelectedAreaColor;
 
-    if(_selectionColorForFillColors == nil){
-        return defaultColor;
+    if(colorsToQuery == nil){
+        return defColor;
     }
 
-    if(([_selectionColorForFillColors count] == 0)||([_selectionColorForFillColors count] < (index+1))){
-        return defaultColor;
+    if(([colorsToQuery count] == 0)||([colorsToQuery count] < (index+1))){
+        return defColor;
     }
 
-    return [[TiUtils colorValue:[_selectionColorForFillColors objectAtIndex:index]] _color];
+    return [[TiUtils colorValue:[colorsToQuery objectAtIndex:index]] _color];
+    
 }
 
--(UIColor *)findColorForLineColor:(NSUInteger)index
+-(NSInteger)findStyle:(NSUInteger)index
 {
-    UIColor * defaultColor = kJBColorAreaChartDefaultSunLineColor;
-
-    if(_colorForLineColors == nil){
-        return defaultColor;
+    if(_areaStyles == nil){
+        return kBBAreaSmooth;
     }
 
-    if(([_colorForLineColors count] == 0)||([_colorForLineColors count] < (index+1))){
-        return defaultColor;
+    if(([_areaStyles count] == 0)||([_areaStyles count] < (index+1))){
+        return kBBAreaSmooth;
     }
 
-    return [[TiUtils colorValue:[_colorForLineColors objectAtIndex:index]] _color];
-}
-
--(UIColor *)findColorForFillColor:(NSUInteger)index
-{
-    UIColor * defaultColor = kJBColorAreaChartDefaultSunAreaColor;
-
-    if(_colorForFillColors == nil){
-        return defaultColor;
-    }
-
-    if(([_colorForFillColors count] == 0)||([_colorForFillColors count] < (index+1))){
-        return defaultColor;
-    }
-
-    return [[TiUtils colorValue:[_colorForFillColors objectAtIndex:index]] _color];
+    return [TiUtils floatValue:[_areaStyles objectAtIndex:index]];
 }
 
 - (void)setTooltipVisible:(BOOL)tooltipVisible animated:(BOOL)animated atTouchPoint:(CGPoint)touchPoint
@@ -294,12 +275,12 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findColorForLineColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_colorForLineColors withDefaultColor:kJBColorAreaChartDefaultSunLineColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView fillColorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findColorForFillColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_colorForFillColors withDefaultColor:kJBColorAreaChartDefaultSunAreaColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
@@ -319,17 +300,17 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findSelectionColorForLineColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:kJBColorAreaChartDefaultSunSelectedLineColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionFillColorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findSelectionColorForFillColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_selectionColorForFillColors withDefaultColor:kJBColorAreaChartDefaultSunSelectedAreaColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-    return [self findSelectionColorForFillColor:lineIndex];
+    return [self findForColor:lineIndex withColorArray:_selectionColorForFillColors withDefaultColor:kJBColorAreaChartDefaultSunSelectedAreaColor];
 }
 
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
@@ -339,12 +320,12 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return NO;
+    return ([self findStyle:lineIndex] == kBBAreaDotted);
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView smoothLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return YES;
+    return ([self findStyle:lineIndex] == kBBAreaSmooth);
 }
 
 #pragma mark - Overrides

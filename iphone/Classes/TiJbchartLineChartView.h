@@ -26,13 +26,11 @@
 @property (nonatomic, strong) NSArray *chartData;
 @property (nonatomic, strong) NSArray *tooltipData;
 @property (nonatomic, strong) NSArray *selectionColorForLineColors;
-@property (nonatomic, strong) NSArray *selectionColorForFillColors;
 
 @property (nonatomic, strong) NSArray *colorForLineColors;
-@property (nonatomic, strong) NSArray *colorForFillColors;
-
 @property (nonatomic, strong) NSArray *lineStyles;
-
 @property (nonatomic, strong) NSArray *lineWidth;
+
+-(void)reloadData:(id)unused;
 
 @end

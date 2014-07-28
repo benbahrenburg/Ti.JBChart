@@ -30,5 +30,8 @@
 
 @property (nonatomic, strong) NSArray *colorForLineColors;
 @property (nonatomic, strong) NSArray *colorForFillColors;
+@property (nonatomic, strong) NSArray *areaStyles;
+
+-(void)reloadData:(id)unused;
 
 @end

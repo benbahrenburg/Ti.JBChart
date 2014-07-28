@@ -66,7 +66,13 @@
 	[super didReceiveMemoryWarning:notification];
 }
 
+int const kBBAreaSmooth = 0;
+int const kBBAreaDotted = 1;
+
 MAKE_SYSTEM_UINT(CHART_LINE_SOLID, JBLineChartViewLineStyleSolid);
 MAKE_SYSTEM_UINT(CHART_LINE_DASHED, JBLineChartViewLineStyleDashed);
+
+MAKE_SYSTEM_UINT(CHART_AREA_SMOOTH, kBBAreaSmooth);
+MAKE_SYSTEM_UINT(CHART_AREA_DOTTED, kBBAreaDotted);
 
 @end
