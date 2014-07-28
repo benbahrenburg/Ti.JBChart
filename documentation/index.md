@@ -9,7 +9,7 @@ The Ti.JBChart project providers a wrapper around the [JBChartView](https://gith
 
 <h2>Download the compiled release</h2>
 
-* [iOS Dist](https://github.com/benbahrenburg/Ti.BlurView/tree/master/iOS/dist)
+* [iOS Dist](https://github.com/benbahrenburg/Ti.JBChart/tree/master/iphone/dist)
 
 <h2>Building from source?</h2>
 
