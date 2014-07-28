@@ -11,7 +11,6 @@
 
 #import "TiJbchartAreaChartView.h"
 #import "JBConstants.h"
-#import "TiViewProxy.h"
 #import "TiJbchartModule.h"
 
 @implementation TiJbchartAreaChartView
@@ -21,18 +20,6 @@ CGFloat const kJBAreaChartViewControllerChartHeaderPadding = 20.0f;
 CGFloat const kJBAreaChartViewControllerChartLineWidth = 2.0f;
 CGFloat const kJBAreaAnimationDuration = 0.25f;
 
--(BOOL) hasToolTip:(NSUInteger)index
-{
-    if(_tooltipData == nil){
-        return NO;
-    }
-
-    if(([_tooltipData count] == 0)||([_tooltipData count] < (index+1))){
-        return NO;
-    }
-
-    return YES;
-}
 
 -(void)reloadData:(id)unused
 {
@@ -45,6 +32,8 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     _selectionBarColor = [UIColor whiteColor];
     _barWidth = kJBAreaChartViewControllerChartLineWidth;
 }
+
+#pragma mark - Property Section
 
 -(void)setBarWidth_:(id)value
 {
@@ -101,9 +90,10 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     _areaStyles = [NSArray arrayWithArray:value];
 }
 
+#pragma mark - Helper Section
+
 -(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
-
     if(colorsToQuery == nil){
         return defColor;
     }
@@ -113,7 +103,6 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     }
 
     return [[TiUtils colorValue:[colorsToQuery objectAtIndex:index]] _color];
-    
 }
 
 -(NSInteger)findStyle:(NSUInteger)index
@@ -128,6 +117,21 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
     return [TiUtils floatValue:[_areaStyles objectAtIndex:index]];
 }
+
+-(BOOL) hasToolTip:(NSUInteger)index
+{
+    if(_tooltipData == nil){
+        return NO;
+    }
+
+    if(([_tooltipData count] == 0)||([_tooltipData count] < (index+1))){
+        return NO;
+    }
+
+    return YES;
+}
+
+#pragma mark - Tooltip Section
 
 - (void)setTooltipVisible:(BOOL)tooltipVisible animated:(BOOL)animated atTouchPoint:(CGPoint)touchPoint
 {
