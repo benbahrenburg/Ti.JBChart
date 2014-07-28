@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+apiversion: 2
+description: tijbchart
+author: Ben Bahrenburg
+license: Apache 2.0
+copyright: Copyright (c) 2014 by Ben Bahrenburg
+
+# these should not be edited
+name: tijbchart
+moduleid: ti.jbchart
+guid: 27335bd3-8f5b-4ed8-afbe-4113ef13bdab
+platform: iphone
+minsdk: 3.3.0.GA

@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* TiJbchartModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiJbchartModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiJbchartModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiJbchartModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiJbchartModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiJbchartModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiJbchartModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiJbchartModuleAssets.m */; };
+		4383290E1985A99000661AF1 /* TiJbchartAreaChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4383290C1985A99000661AF1 /* TiJbchartAreaChartView.h */; };
+		4383290F1985A99000661AF1 /* TiJbchartAreaChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4383290D1985A99000661AF1 /* TiJbchartAreaChartView.m */; };
+		438329121985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 438329101985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.h */; };
+		438329131985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 438329111985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.m */; };
+		438329291985B0C600661AF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438329281985B0C600661AF1 /* CoreGraphics.framework */; };
+		438329311985B4FE00661AF1 /* JBBarChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4383292B1985B4FE00661AF1 /* JBBarChartView.h */; };
+		438329321985B4FE00661AF1 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4383292C1985B4FE00661AF1 /* JBBarChartView.m */; };
+		438329331985B4FE00661AF1 /* JBChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4383292D1985B4FE00661AF1 /* JBChartView.h */; };
+		438329341985B4FE00661AF1 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4383292E1985B4FE00661AF1 /* JBChartView.m */; };
+		438329351985B4FE00661AF1 /* JBLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4383292F1985B4FE00661AF1 /* JBLineChartView.h */; };
+		438329361985B4FE00661AF1 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 438329301985B4FE00661AF1 /* JBLineChartView.m */; };
+		43B5F3171985BEFA00BB45E4 /* JBChartTooltipView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F3151985BEFA00BB45E4 /* JBChartTooltipView.h */; };
+		43B5F3181985BEFA00BB45E4 /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B5F3161985BEFA00BB45E4 /* JBChartTooltipView.m */; };
+		43B5F31B1985C18000BB45E4 /* JBChartTooltipTipView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F3191985C18000BB45E4 /* JBChartTooltipTipView.h */; };
+		43B5F31C1985C18000BB45E4 /* JBChartTooltipTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B5F31A1985C18000BB45E4 /* JBChartTooltipTipView.m */; };
+		43B5F3221985C2DF00BB45E4 /* JBColorConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F31D1985C2DF00BB45E4 /* JBColorConstants.h */; };
+		43B5F3231985C2DF00BB45E4 /* JBConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F31E1985C2DF00BB45E4 /* JBConstants.h */; };
+		43B5F3241985C2DF00BB45E4 /* JBFontConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F31F1985C2DF00BB45E4 /* JBFontConstants.h */; };
+		43B5F3251985C2DF00BB45E4 /* JBStringConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F3201985C2DF00BB45E4 /* JBStringConstants.h */; };
+		43B5F3261985C2DF00BB45E4 /* JBUIConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B5F3211985C2DF00BB45E4 /* JBUIConstants.h */; };
+		43FEE7F61985D9A400C5B3C9 /* TiJbchartLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FEE7F41985D9A400C5B3C9 /* TiJbchartLineChartView.h */; };
+		43FEE7F71985D9A400C5B3C9 /* TiJbchartLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FEE7F51985D9A400C5B3C9 /* TiJbchartLineChartView.m */; };
+		43FEE7FA1985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FEE7F81985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.h */; };
+		43FEE7FB1985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FEE7F91985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.m */; };
+		AA747D9F0F9514B9006C5449 /* TiJbchart_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiJbchart_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = tijbchart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* TiJbchartModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartModule.h; path = Classes/TiJbchartModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiJbchartModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartModule.m; path = Classes/TiJbchartModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiJbchartModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartModuleAssets.h; path = Classes/TiJbchartModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiJbchartModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartModuleAssets.m; path = Classes/TiJbchartModuleAssets.m; sourceTree = "<group>"; };
+		4383290C1985A99000661AF1 /* TiJbchartAreaChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartAreaChartView.h; path = Classes/TiJbchartAreaChartView.h; sourceTree = "<group>"; };
+		4383290D1985A99000661AF1 /* TiJbchartAreaChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartAreaChartView.m; path = Classes/TiJbchartAreaChartView.m; sourceTree = "<group>"; };
+		438329101985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartAreaChartViewProxy.h; path = Classes/TiJbchartAreaChartViewProxy.h; sourceTree = "<group>"; };
+		438329111985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartAreaChartViewProxy.m; path = Classes/TiJbchartAreaChartViewProxy.m; sourceTree = "<group>"; };
+		438329281985B0C600661AF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4383292B1985B4FE00661AF1 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		4383292C1985B4FE00661AF1 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		4383292D1985B4FE00661AF1 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		4383292E1985B4FE00661AF1 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		4383292F1985B4FE00661AF1 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		438329301985B4FE00661AF1 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		43B5F3151985BEFA00BB45E4 /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
+		43B5F3161985BEFA00BB45E4 /* JBChartTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipView.m; sourceTree = "<group>"; };
+		43B5F3191985C18000BB45E4 /* JBChartTooltipTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipTipView.h; sourceTree = "<group>"; };
+		43B5F31A1985C18000BB45E4 /* JBChartTooltipTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipTipView.m; sourceTree = "<group>"; };
+		43B5F31D1985C2DF00BB45E4 /* JBColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBColorConstants.h; sourceTree = "<group>"; };
+		43B5F31E1985C2DF00BB45E4 /* JBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBConstants.h; sourceTree = "<group>"; };
+		43B5F31F1985C2DF00BB45E4 /* JBFontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFontConstants.h; sourceTree = "<group>"; };
+		43B5F3201985C2DF00BB45E4 /* JBStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBStringConstants.h; sourceTree = "<group>"; };
+		43B5F3211985C2DF00BB45E4 /* JBUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBUIConstants.h; sourceTree = "<group>"; };
+		43FEE7F41985D9A400C5B3C9 /* TiJbchartLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartLineChartView.h; path = Classes/TiJbchartLineChartView.h; sourceTree = "<group>"; };
+		43FEE7F51985D9A400C5B3C9 /* TiJbchartLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartLineChartView.m; path = Classes/TiJbchartLineChartView.m; sourceTree = "<group>"; };
+		43FEE7F81985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiJbchartLineChartViewProxy.h; path = Classes/TiJbchartLineChartViewProxy.h; sourceTree = "<group>"; };
+		43FEE7F91985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiJbchartLineChartViewProxy.m; path = Classes/TiJbchartLineChartViewProxy.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiJbchart_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiJbchart_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTiJbchart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiJbchart.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				438329291985B0C600661AF1 /* CoreGraphics.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiJbchart.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* tijbchart */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = tijbchart;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438329281985B0C600661AF1 /* CoreGraphics.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4383292A1985B4FE00661AF1 /* JBChartClasses */,
+				24DE9E0F11C5FE74003F90F6 /* TiJbchartModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiJbchartModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiJbchartModule.h */,
+				24DD6CF81134B3F500162E58 /* TiJbchartModule.m */,
+				4383290C1985A99000661AF1 /* TiJbchartAreaChartView.h */,
+				4383290D1985A99000661AF1 /* TiJbchartAreaChartView.m */,
+				438329101985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.h */,
+				438329111985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.m */,
+				43FEE7F41985D9A400C5B3C9 /* TiJbchartLineChartView.h */,
+				43FEE7F51985D9A400C5B3C9 /* TiJbchartLineChartView.m */,
+				43FEE7F81985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.h */,
+				43FEE7F91985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiJbchart_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		4383292A1985B4FE00661AF1 /* JBChartClasses */ = {
+			isa = PBXGroup;
+			children = (
+				43B5F31D1985C2DF00BB45E4 /* JBColorConstants.h */,
+				43B5F31E1985C2DF00BB45E4 /* JBConstants.h */,
+				43B5F31F1985C2DF00BB45E4 /* JBFontConstants.h */,
+				43B5F3201985C2DF00BB45E4 /* JBStringConstants.h */,
+				43B5F3211985C2DF00BB45E4 /* JBUIConstants.h */,
+				43B5F3191985C18000BB45E4 /* JBChartTooltipTipView.h */,
+				43B5F31A1985C18000BB45E4 /* JBChartTooltipTipView.m */,
+				43B5F3151985BEFA00BB45E4 /* JBChartTooltipView.h */,
+				43B5F3161985BEFA00BB45E4 /* JBChartTooltipView.m */,
+				4383292B1985B4FE00661AF1 /* JBBarChartView.h */,
+				4383292C1985B4FE00661AF1 /* JBBarChartView.m */,
+				4383292D1985B4FE00661AF1 /* JBChartView.h */,
+				4383292E1985B4FE00661AF1 /* JBChartView.m */,
+				4383292F1985B4FE00661AF1 /* JBLineChartView.h */,
+				438329301985B4FE00661AF1 /* JBLineChartView.m */,
+			);
+			name = JBChartClasses;
+			path = Classes/JBChartClasses;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43B5F3231985C2DF00BB45E4 /* JBConstants.h in Headers */,
+				43B5F3241985C2DF00BB45E4 /* JBFontConstants.h in Headers */,
+				438329351985B4FE00661AF1 /* JBLineChartView.h in Headers */,
+				438329121985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.h in Headers */,
+				43B5F3221985C2DF00BB45E4 /* JBColorConstants.h in Headers */,
+				43B5F3261985C2DF00BB45E4 /* JBUIConstants.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* TiJbchart_Prefix.pch in Headers */,
+				43B5F3171985BEFA00BB45E4 /* JBChartTooltipView.h in Headers */,
+				43B5F31B1985C18000BB45E4 /* JBChartTooltipTipView.h in Headers */,
+				438329331985B4FE00661AF1 /* JBChartView.h in Headers */,
+				43B5F3251985C2DF00BB45E4 /* JBStringConstants.h in Headers */,
+				438329311985B4FE00661AF1 /* JBBarChartView.h in Headers */,
+				24DD6CF91134B3F500162E58 /* TiJbchartModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiJbchartModuleAssets.h in Headers */,
+				43FEE7F61985D9A400C5B3C9 /* TiJbchartLineChartView.h in Headers */,
+				43FEE7FA1985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.h in Headers */,
+				4383290E1985A99000661AF1 /* TiJbchartAreaChartView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* tijbchart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "tijbchart" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tijbchart;
+			productName = tijbchart;
+			productReference = D2AAC07E0554694100DB518D /* libTiJbchart.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "tijbchart" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* tijbchart */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* tijbchart */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DD6CFA1134B3F500162E58 /* TiJbchartModule.m in Sources */,
+				438329341985B4FE00661AF1 /* JBChartView.m in Sources */,
+				43FEE7FB1985D9B500C5B3C9 /* TiJbchartLineChartViewProxy.m in Sources */,
+				438329361985B4FE00661AF1 /* JBLineChartView.m in Sources */,
+				43B5F3181985BEFA00BB45E4 /* JBChartTooltipView.m in Sources */,
+				438329321985B4FE00661AF1 /* JBBarChartView.m in Sources */,
+				4383290F1985A99000661AF1 /* TiJbchartAreaChartView.m in Sources */,
+				43B5F31C1985C18000BB45E4 /* JBChartTooltipTipView.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiJbchartModuleAssets.m in Sources */,
+				438329131985A9AE00661AF1 /* TiJbchartAreaChartViewProxy.m in Sources */,
+				43FEE7F71985D9A400C5B3C9 /* TiJbchartLineChartView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* tijbchart */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiJbchart.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiJbchart_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiJbchart;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos7.1;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/TiJbchart.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiJbchart_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiJbchart;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos7.1;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiJbchart.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiJbchart_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiJbchart;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/TiJbchart.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiJbchart_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiJbchart;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Build & test";
+				SDKROOT = iphoneos7.1;
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Build & test";
+				SDKROOT = iphoneos7.1;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "tijbchart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "tijbchart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
