@@ -11,9 +11,27 @@
 
 #import "TiJbchartBarChartViewProxy.h"
 #import "TiUtils.h"
+#import "TiJbchartBarChartView.h"
 
 @implementation TiJbchartBarChartViewProxy
 
+-(NSArray *)keySequence
+{
+    return [NSArray arrayWithObjects:
+            @"data",
+            @"toolTipData",
+            @"selectionBarColor",
+            @"barColors",
+            @"barPadding",
+            nil];
+}
 
+-(void)reloadData:(id)unused
+{
+  	if ([self viewAttached])
+	{
+		TiThreadPerformOnMainThread(^{[(TiJbchartBarChartView*)[self view] reloadData:unused];}, NO);
+	}
+}
 
 @end

@@ -10,9 +10,27 @@
  */
 
 #import "TiUIView.h"
+#import "JBChartTooltipView.h"
+#import "JBChartTooltipTipView.h"
+#import "JBBarChartView.h"
 
-@interface TiJbchartBarChartView : TiUIView {
-
+@interface TiJbchartBarChartView : TiUIView<JBBarChartViewDelegate, JBBarChartViewDataSource>{
+@private
+    UIColor * _selectionBarColor;
+    CGFloat _barWidth;
+    float _barCount;
+    float _barPadding;
 }
+
+@property (nonatomic, strong) JBChartTooltipView *tooltipView;
+@property (nonatomic, strong) JBChartTooltipTipView *tooltipTipView;
+@property (nonatomic, assign) BOOL tooltipVisible;
+@property (nonatomic, strong) JBBarChartView * barChart;
+@property (nonatomic, strong) NSArray *chartData;
+@property (nonatomic, strong) NSArray *tooltipData;
+
+@property (nonatomic, strong) NSArray *barColors;
+
+-(void)reloadData:(id)unused;
 
 @end
