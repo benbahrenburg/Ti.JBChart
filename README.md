@@ -2,6 +2,8 @@
 
 The Ti.JBChart project providers a wrapper around the [JBChartView](https://github.com/Jawbone/JBChartView).
 
+![Animation](https://github.com/benbahrenburg/Ti.JBChart/blob/master/screenshots/demo.gif)
+
 <h2>Before you start</h2>
 * This is an iOS native module designed to work with Titanium SDK 3.3.0.GA
 * This will only work with iOS <b>7</b> or greater
