@@ -34,7 +34,7 @@ TITANIUM_SDK = /Users/benjamin/Library/Application Support/Titanium/mobilesdk/os
 
 <h2>Importing the module using require</h2>
 <pre><code>
-var mod = require('ti.jbchart');
+var chart = require('ti.jbchart');
 </code></pre>
 
 <h2>Module Features</h2>
