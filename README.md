@@ -145,8 +145,8 @@ For a complete example, please visit [area chart in examples](https://github.com
     var myStyles = [];
     //Create the first area chart with a smooth curved line
     myStyles.push(chart.CHART_AREA_SMOOTH);
-    //Create the second area chart as a with a sharper line
-    myStyles.push(chart.CHART_AREA_DOTTED);
+    //Create the second area chart as a with a solid line
+    myStyles.push(chart.CHART_AREA_SOLID);
 
 	var areaChart = chart.createAreaChartView({
 		width:Ti.UI.FILL, height:250, 
@@ -189,6 +189,44 @@ The <b>LineChartView</b> creates a line chart from an array datasource you provi
 
 <h4>Example</h4>
 
+For a complete example, please visit [line chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/line_chart.js)
+
+~~~
+	function createData(){
+		var result =[];
+		function createRandom(min,max){
+		    return Math.floor(Math.random()*(max-min+1)+min);
+		}	
+		for (var iLoop=0;iLoop<12;iLoop++){
+			result.push(createRandom(1,12));
+		}
+		return result;
+	}
+
+    var data = [];
+    //Add first line chart
+    data.push(createData());
+    //Add second line chart
+    data.push(createData());
+
+    var myStyles = [];
+    //Create the first line chart with a solid  line
+    myStyles.push(chart.CHART_LINE_SOLID);
+    //Create the second line chart as a with a dashed line
+    myStyles.push(chart.CHART_LINE_DASHED);
+
+	var lineChart = chart.createLineChartView({
+		width:Ti.UI.FILL, height:250, 
+		data : data,
+		toolTipData : [['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+		selectedLineColors :['yellow','orange'],
+		lineColors:['green','blue'],
+		styles : myStyles,
+		selectionBarColor:'purple',
+		chartBackgroundColor:'#404041'
+	});
+~~~
+
 <h2>Module Properties</h2>
 
 <b>CHART_LINE_SOLID</b> : This property is used set a solid line when displaying the LineChartView.
@@ -197,7 +235,7 @@ The <b>LineChartView</b> creates a line chart from an array datasource you provi
 
 <b>CHART_AREA_SMOOTH</b> : This property is used set a smooth area effect for the AreaChartView.
 
-<b>CHART_AREA_DOTTED</b> : This property is used set a dotted area effect for the AreaChartView.
+<b>CHART_AREA_SOLID</b> : This property is used set a solid area effect for the AreaChartView.
 
 <h3>Twitter</h3>
 
