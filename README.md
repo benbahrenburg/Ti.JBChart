@@ -122,6 +122,45 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 
 <h4>Example</h4>
 
+For a complete example, please visit [area chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/area_chart.js)
+
+~~~
+	function createData(){
+		var result =[];
+		function createRandom(min,max){
+		    return Math.floor(Math.random()*(max-min+1)+min);
+		}	
+		for (var iLoop=0;iLoop<12;iLoop++){
+			result.push(createRandom(1,24));
+		}
+		return result;
+	}
+
+    var data = [];
+    //Add first area chart
+    data.push(createData());
+    //Add second area chart
+    data.push(createData());
+
+    var myStyles = [];
+    //Create the first area chart with a smooth curved line
+    myStyles.push(chart.CHART_AREA_SMOOTH);
+    //Create the second area chart as a with a sharper line
+    myStyles.push(chart.CHART_AREA_DOTTED);
+
+	var areaChart = chart.createAreaChartView({
+		width:Ti.UI.FILL, height:250, 
+		data : data,
+		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'],
+		selectedLineColors :['yellow','orange'],
+		selectedFillColors :['yellow','orange'],
+		fillColors:['green','blue'],
+		styles :myStyles,
+		selectionBarColor:'#fff',
+		chartBackgroundColor:'#404041'
+	});
+~~~
 <h3>LineChartView</h3>
 
 The <b>LineChartView</b> creates a line chart from an array datasource you provide.
