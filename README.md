@@ -51,9 +51,9 @@ The <b>BarChartView</b> creates a bar chart from an array datasource you provide
 
 <b>selectionBarColor </b><i>optional - Color</i> : This property sets the color of the selection bar that is displayed when the user taps the chart.  This is white by default.
 
-<b>barColors </b><i>optional - Array</i> : An Array of colors, with a color for each of the bars to be displayed.  If no bar color is available, a default of blue will be used.
+<b>barColors </b><i>optional - Array of Colors</i> : An Array of colors, with a color for each of the bars to be displayed.  If no bar color is available, a default of blue will be used.
 
-<b>barColors </b><i>optional - Array</i> : An Array of colors, with a color for each of the bars to be displayed.  If no bar color is available of an data source index, a default of blue will be used.
+<b>defaultBarColor </b><i>optional - Color</i> : The default bar color used unless otherwise specified, by default this is green.
 
 <b>barPadding </b><i>optional - float</i> : The padding between bars in the chart.
 
