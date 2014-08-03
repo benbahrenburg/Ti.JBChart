@@ -66,6 +66,32 @@ The <b>BarChartView</b> creates a bar chart from an array datasource you provide
 
 <h4>Example</h4>
 
+For a complete example, please visit [bar chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/bar_chart.js)
+
+~~~
+	function createRandom(min,max){
+	    return Math.floor(Math.random()*(max-min+1)+min);
+	}
+
+    var data = [],
+    	colors =[];
+
+	for (var iLoop=0;iLoop<12;iLoop++){
+		data.push(createRandom(15,110));
+		colors.push((iLoop % 2 == 0) ? 'blue' : 'green');
+	}	
+
+	var barChart = chart.createBarChartView({
+		width:Ti.UI.FILL, height:250, 
+		data : data,
+		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'],
+		barColors:colors,
+		selectionBarColor:'yellow',
+		chartBackgroundColor:'#404041'
+	});
+~~~
+
 <h3>AreaChartView</h3>
 
 The <b>AreaChartView</b> creates a area chart from an array datasource you provide.
