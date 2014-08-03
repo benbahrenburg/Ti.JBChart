@@ -53,6 +53,9 @@ More details coming soon.  You can read the code now for all of the features.
 
 <b>CHART_LINE_DASHED</b> : This property is used set a dashed line when displaying the LineChartView.
 
+<b>CHART_AREA_SMOOTH</b> : This property is used set a smooth area effect for the AreaChartView.
+
+<b>CHART_AREA_DOTTED</b> : This property is used set a dotted area effect for the AreaChartView.
 
 <h3>Twitter</h3>
 

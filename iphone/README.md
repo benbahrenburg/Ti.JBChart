@@ -2,6 +2,8 @@
 
 The Ti.JBChart project providers a wrapper around the [JBChartView](https://github.com/Jawbone/JBChartView).
 
+![Animation](https://github.com/benbahrenburg/Ti.JBChart/blob/master/screenshots/demo.gif)
+
 <h2>Before you start</h2>
 * This is an iOS native module designed to work with Titanium SDK 3.3.0.GA
 * This will only work with iOS <b>7</b> or greater
@@ -51,6 +53,9 @@ More details coming soon.  You can read the code now for all of the features.
 
 <b>CHART_LINE_DASHED</b> : This property is used set a dashed line when displaying the LineChartView.
 
+<b>CHART_AREA_SMOOTH</b> : This property is used set a smooth area effect for the AreaChartView.
+
+<b>CHART_AREA_DOTTED</b> : This property is used set a dotted area effect for the AreaChartView.
 
 <h3>Twitter</h3>
 

@@ -253,7 +253,7 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 	}
 }
 
-- (void)didUnselectLineInLineChartView:(JBLineChartView *)lineChartView
+- (void)didDeselectLineInLineChartView:(JBLineChartView *)lineChartView
 {
     [self setTooltipVisible:NO animated:YES];
     if ([self.proxy _hasListeners:@"unselected"]) {
@@ -319,7 +319,7 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return JBLineChartViewLineStyleSolid;
+    return [self findStyle:lineIndex];
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex

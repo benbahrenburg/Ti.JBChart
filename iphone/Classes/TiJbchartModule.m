@@ -40,8 +40,6 @@
 	// this method is called when the module is first loaded
 	// you *must* call the superclass
 	[super startup];
-
-	NSLog(@"[INFO] %@ loaded",self);
 }
 
 -(void)shutdown:(id)sender
@@ -72,7 +70,7 @@ int const kBBAreaDotted = 1;
 MAKE_SYSTEM_UINT(CHART_LINE_SOLID, JBLineChartViewLineStyleSolid);
 MAKE_SYSTEM_UINT(CHART_LINE_DASHED, JBLineChartViewLineStyleDashed);
 
-MAKE_SYSTEM_UINT(CHART_AREA_SMOOTH, kBBAreaSmooth);
-MAKE_SYSTEM_UINT(CHART_AREA_DOTTED, kBBAreaDotted);
+MAKE_SYSTEM_UINT(CHART_AREA_SMOOTH, JBLineChartViewLineStyleSolid);
+MAKE_SYSTEM_UINT(CHART_AREA_DOTTED, JBLineChartViewLineStyleDashed);
 
 @end

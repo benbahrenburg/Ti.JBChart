@@ -237,7 +237,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 	}
 }
 
-- (void)didUnselectLineInLineChartView:(JBLineChartView *)lineChartView
+- (void)didDeselectLineInLineChartView:(JBLineChartView *)lineChartView
 {
     [self setTooltipVisible:NO animated:YES];
     if ([self.proxy _hasListeners:@"unselected"]) {
