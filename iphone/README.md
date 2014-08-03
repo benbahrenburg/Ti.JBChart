@@ -37,7 +37,7 @@ TITANIUM_SDK = /Users/benjamin/Library/Application Support/Titanium/mobilesdk/os
 var chart = require('ti.jbchart');
 </code></pre>
 
-<h2>Module Features</h2>
+<h2>View Features</h2>
 
 <h3>BarChartView</h3>
 
@@ -60,11 +60,7 @@ The <b>BarChartView</b> creates a bar chart from an array datasource you provide
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
 
 
-<h4>Methods</h4>
-
-<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
-
-<h4>Example</h4>
+<h4>View Example</h4>
 
 For a complete example, please visit [bar chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/bar_chart.js)
 
@@ -90,6 +86,29 @@ For a complete example, please visit [bar chart in examples](https://github.com/
 		selectionBarColor:'yellow',
 		chartBackgroundColor:'#404041'
 	});
+~~~
+
+<h4>Methods</h4>
+
+<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+
+<h4>Events</h4>
+
+<b>selected</b> : The <b>selected</b> event is fired when the user selects a chart object.
+
+<b>unselected</b> : The <b>unselected</b> event is fired when the user removes their focus for the selected chart object.
+
+
+<h4>Events Example</h4>
+~~~
+	chart.addEventListener('selected',function(e){
+		Ti.API.info(JSON.stringify(e));				
+	});
+	
+	chart.addEventListener('unselected',function(e){
+		Ti.API.info(JSON.stringify(e));		
+	});	
 ~~~
 
 <h3>AreaChartView</h3>
@@ -124,11 +143,7 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
 
-<h4>Methods</h4>
-
-<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
-
-<h4>Example</h4>
+<h4>View Example</h4>
 
 For a complete example, please visit [area chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/area_chart.js)
 
@@ -169,6 +184,28 @@ For a complete example, please visit [area chart in examples](https://github.com
 		chartBackgroundColor:'#404041'
 	});
 ~~~
+
+<h4>Methods</h4>
+
+<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+<h4>Events</h4>
+
+<b>selected</b> : The <b>selected</b> event is fired when the user selects a chart object.
+
+<b>unselected</b> : The <b>unselected</b> event is fired when the user removes their focus for the selected chart object.
+
+<h4>Events Example</h4>
+~~~
+	chart.addEventListener('selected',function(e){
+		Ti.API.info(JSON.stringify(e));				
+	});
+	
+	chart.addEventListener('unselected',function(e){
+		Ti.API.info(JSON.stringify(e));		
+	});	
+~~~
+
 <h3>LineChartView</h3>
 
 The <b>LineChartView</b> creates a line chart from an array datasource you provide.
@@ -195,11 +232,7 @@ The <b>LineChartView</b> creates a line chart from an array datasource you provi
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
 
-<h4>Methods</h4>
-
-<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
-
-<h4>Example</h4>
+<h4>View Example</h4>
 
 For a complete example, please visit [line chart in examples](https://github.com/benbahrenburg/Ti.JBChart/blob/master/example/line_chart.js)
 
@@ -237,6 +270,21 @@ For a complete example, please visit [line chart in examples](https://github.com
 		selectionBarColor:'purple',
 		chartBackgroundColor:'#404041'
 	});
+~~~
+
+<h4>Methods</h4>
+
+<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+<h4>Events Example</h4>
+~~~
+	chart.addEventListener('selected',function(e){
+		Ti.API.info(JSON.stringify(e));				
+	});
+	
+	chart.addEventListener('unselected',function(e){
+		Ti.API.info(JSON.stringify(e));		
+	});	
 ~~~
 
 <h2>Module Properties</h2>
