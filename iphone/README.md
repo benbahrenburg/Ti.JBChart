@@ -39,6 +39,10 @@ var mod = require('ti.jbchart');
 
 <h2>Module Features</h2>
 
+<h3>BarChartView</h3>
+
+More details coming soon.  You can read the code now for all of the features.
+
 <h3>AreaChartView</h3>
 
 More details coming soon.  You can read the code now for all of the features.
