@@ -78,15 +78,15 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 
 <b>selectionBarColor </b><i>optional - Color</i> : This property sets the color of the selection bar that is displayed when the user taps the chart.  This is white by default.
 
-<b>selectedLineColor </b><i>optional - Array of Colors</i> : This property sets the color of the line when it is selected by the user. This is an array, the index of the selected chart item will determine what color is applied, by default this is blue.  See example for a reference on how this is implemented.
+<b>selectedLineColors </b><i>optional - Array of Colors</i> : This property sets the color of the line when it is selected by the user. This is an array, the index of the selected chart item will determine what color is applied, by default this is blue.  See example for a reference on how this is implemented.
 
-<b>selectedAreaColor </b><i>optional - Array of Colors</i> : This property sets the color of the area when it is selected by the user.  This is an array, the index of the selected chart item will determine what color is applied, by default this is blue. See example for a reference on how this is implemented.
+<b>selectedAreaColors </b><i>optional - Array of Colors</i> : This property sets the color of the area when it is selected by the user.  This is an array, the index of the selected chart item will determine what color is applied, by default this is blue. See example for a reference on how this is implemented.
 
-<b>LineColor </b><i>optional - Array of Colors</i> : This property sets the color of the outline of the area chart data point.This is an array, with a value for each data source index provided, but default this is green.
+<b>lineColors </b><i>optional - Array of Colors</i> : This property sets the color of the outline of the area chart data point.This is an array, with a value for each data source index provided, but default this is green.
 
-<b>LineColor </b><i>optional - Array of Colors</i> : This property sets the color of the fill of the area chart data point. This is an array, with a value for each data source index provided, but default this is green.
+<b>fillColors </b><i>optional - Array of Colors</i> : This property sets the color of the fill of the area chart data point. This is an array, with a value for each data source index provided, but default this is green.
 
-<b>areaStyles </b><i>optional - Array of Styles</i> : This property sets the style of the Area Chart.  By default this style is CHART_AREA_SMOOTH.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
+<b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Area Chart.  By default this style is CHART_AREA_SMOOTH.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
 
@@ -98,7 +98,31 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 
 <h3>LineChartView</h3>
 
-More details coming soon.  You can read the code now for all of the features.
+The <b>LineChartView</b> creates a line chart from an array datasource you provide.
+
+<h4>Properties</h4>
+
+<b>data </b><i>required - Array</i> : This is an Array of Arrays with each Array being the data source of an area chart.  For example if the data property is provided [[1,2,3,4,5],[6,7,8,9,10]] it will create two line charts, each with 5 data points. See example section for details.  
+
+<b>toolTipData </b><i>optional - Array</i> : An Array of the tool tip information that should be displayed. There should be one tool tip data array item for each of the data array items provided.
+
+<b>selectionBarColor </b><i>optional - Color</i> : This property sets the color of the selection bar that is displayed when the user taps the chart.  This is white by default.
+
+<b>selectedLineColors </b><i>optional - Array of Colors</i> : This property sets the color of the line when it is selected by the user. This is an array, the index of the selected chart item will determine what color is applied, by default this is blue.  See example for a reference on how this is implemented.
+
+<b>lineColors </b><i>optional - Array of Colors</i> : This property sets the color of the outline of the line chart data point.This is an array, with a value for each data source index provided, but default this is green.
+
+<b>lineWidths </b><i>optional - Array of floats</i> : This property sets the line width for each line on the chart. This is an array, with a value for each data source index provided, but default this is 1.
+
+<b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Line Chart.  By default this style is CHART_LINE_SOLID.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
+
+<b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
+
+<h4>Methods</h4>
+
+<b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+<h4>Example</h4>
 
 <h2>Module Properties</h2>
 
