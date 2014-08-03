@@ -17,6 +17,7 @@
 @interface TiJbchartBarChartView : TiUIView<JBBarChartViewDelegate, JBBarChartViewDataSource>{
 @private
     UIColor * _selectionBarColor;
+    UIColor * _defaultBarColor;
     float _barCount;
     float _barPadding;
     BOOL _debug;

@@ -46,10 +46,11 @@ exports.createWindow = function(){
 		width:Ti.UI.FILL, height:250, top:10,
 		data : fakeData,
 		toolTipData : months,
-		selectedLineColor :['yellow','orange'],
-		selectedFillColor :['yellow','orange'],
-		fillColor:['green','blue'],
-		areaStyles :[chart.CHART_AREA_SMOOTH,chart.CHART_AREA_DOTTED],
+		selectedLineColors :['yellow','orange'],
+		selectedFillColors :['yellow','orange'],
+		fillColors:['green','blue'],
+		lineColors:['purple','red'],
+		styles :[chart.CHART_AREA_SMOOTH,chart.CHART_AREA_SOLID],
 		selectionBarColor:'#fff',
 		chartBackgroundColor:'#404041'
 	});

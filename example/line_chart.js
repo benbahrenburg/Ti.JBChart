@@ -29,7 +29,6 @@ exports.createWindow = function(){
 		layout:'horizontal'
 	});
 		
-	
 	fakeData.push(getRandomData());
 	fakeData.push(getRandomData());
 	
@@ -47,9 +46,9 @@ exports.createWindow = function(){
 		width:Ti.UI.FILL, height:250, top:50,
 		data : fakeData,
 		toolTipData : weekdays,
-		lineStyles :[chart.CHART_LINE_SOLID,chart.CHART_LINE_DASHED],
-		selectedLineColor :['yellow','orange'],
-		lineColor:['green','blue'],
+		styles :[chart.CHART_LINE_SOLID,chart.CHART_LINE_DASHED],
+		selectedLineColors :['yellow','orange'],
+		lineColors:['green','blue'],
 		selectionBarColor:'#fff',
 		chartBackgroundColor:'#404041'
 	});

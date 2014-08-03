@@ -17,6 +17,9 @@
 @interface TiJbchartLineChartView : TiUIView<JBLineChartViewDelegate, JBLineChartViewDataSource> {
 @private
     UIColor * _selectionBarColor;
+    UIColor * _defaultSelectedLineColor;
+    UIColor * _defaultLineColor;
+    float _defaultLineWidth;
 }
 
 @property (nonatomic, strong) JBChartTooltipView *tooltipView;

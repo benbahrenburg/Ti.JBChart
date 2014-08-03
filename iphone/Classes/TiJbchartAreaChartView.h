@@ -18,6 +18,10 @@
 @private
     UIColor * _selectionBarColor;
     CGFloat _barWidth;
+    UIColor * _defaultSelectedLineColor;
+    UIColor * _defaultSelectedAreaColor;
+    UIColor * _defaultLineColor;
+    UIColor * _defaultFillColor;
 }
 @property (nonatomic, strong) JBChartTooltipView *tooltipView;
 @property (nonatomic, strong) JBChartTooltipTipView *tooltipTipView;

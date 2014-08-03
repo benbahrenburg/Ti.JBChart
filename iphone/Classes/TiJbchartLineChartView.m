@@ -24,6 +24,9 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 {
 	[super initializeState];
     _selectionBarColor = [UIColor whiteColor];
+    _defaultSelectedLineColor = [UIColor blueColor];
+    _defaultLineColor = [UIColor greenColor];
+    _defaultLineWidth = 6.0f;
 }
 
 -(BOOL)hasToolTip:(NSUInteger)index
@@ -51,7 +54,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _selectionBarColor = clr;
 }
 
--(void)setLineStyles_:(id)value
+-(void)setStyles_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _lineStyles = [NSArray arrayWithArray:value];
@@ -69,24 +72,41 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _tooltipData = [NSArray arrayWithArray:value];
 }
 
--(void)setSelectedLineColor_:(id)value
+-(void)setSelectedLineColors_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _selectionColorForLineColors = [NSArray arrayWithArray:value];
 }
 
--(void)setLineWidth_:(id)value
+-(void)setLineWidths_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _lineWidth = [NSArray arrayWithArray:value];
 }
 
--(void)setLineColor_:(id)value
+-(void)setLineColors_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _colorForLineColors = [NSArray arrayWithArray:value];
 }
 
+-(void)setDefaultSelectedLineColor_:(id)color
+{
+    TiColor *newColor = [TiUtils colorValue:color];
+	_defaultSelectedLineColor = [newColor _color];
+}
+
+-(void)setDefaultLineColor_:(id)color
+{
+    TiColor *newColor = [TiUtils colorValue:color];
+	_defaultLineColor = [newColor _color];
+}
+
+-(void)setDefaultLineWidth_:(id)value
+{
+    ENSURE_SINGLE_ARG(value,NSNumber);
+    _defaultLineWidth = [value floatValue];
+}
 
 -(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
@@ -263,7 +283,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-   return [self findForColor:lineIndex withColorArray:_colorForLineColors withDefaultColor:[UIColor blackColor]];
+   return [self findForColor:lineIndex withColorArray:_colorForLineColors withDefaultColor:_defaultLineColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
@@ -274,11 +294,11 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView widthForLineAtLineIndex:(NSUInteger)lineIndex
 {
     if(_lineWidth == nil){
-        return kJBLineChartViewControllerChartSolidLineWidth;
+        return _defaultLineWidth;
     }
 
     if(([_lineWidth count] == 0)||([_lineWidth count] < (lineIndex+1))){
-        return kJBLineChartViewControllerChartSolidLineWidth;
+        return _defaultLineWidth;
     }
 
     return [TiUtils floatValue:[_lineWidth objectAtIndex:lineIndex]];
@@ -287,11 +307,11 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView dotRadiusForLineAtLineIndex:(NSUInteger)lineIndex
 {
     if(_lineWidth == nil){
-        return kJBLineChartViewControllerChartSolidLineWidth;
+        return _defaultLineWidth;
     }
 
     if(([_lineWidth count] == 0)||([_lineWidth count] < (lineIndex+1))){
-        return kJBLineChartViewControllerChartSolidLineWidth;
+        return _defaultLineWidth;
     }
 
     return [TiUtils floatValue:[_lineWidth objectAtIndex:lineIndex]];
@@ -304,12 +324,12 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:[UIColor blueColor]];
+    return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:_defaultSelectedLineColor];
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView selectionColorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-   return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:[UIColor blueColor]];
+   return [self findForColor:lineIndex withColorArray:_selectionColorForLineColors withDefaultColor:_defaultSelectedLineColor];
 }
 
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
@@ -340,7 +360,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
         id backgroundColor = [self.proxy valueForUndefinedKey:@"chartBackgroundColor"];
         if(backgroundColor == nil){
-            self.lineChart.backgroundColor = kJBColorLineChartBackground;
+            self.lineChart.backgroundColor = [UIColor whiteColor];
         }else{
             TiColor *newColor = [TiUtils colorValue:backgroundColor];
             UIColor *clr = [newColor _color];

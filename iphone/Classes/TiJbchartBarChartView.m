@@ -26,6 +26,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
 	[super initializeState];
     _debug = NO;
+    _defaultBarColor = [UIColor greenColor];
     _selectionBarColor = [UIColor whiteColor];
     _barCount = 1;
     _barPadding = kJBBarChartViewControllerBarPadding;
@@ -57,6 +58,12 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _barColors = [NSArray arrayWithArray:value];
+}
+
+-(void)setDefaultBarColor_:(id)color
+{
+    TiColor *newColor = [TiUtils colorValue:color];
+	_defaultBarColor = [newColor _color];
 }
 
 -(void)setBarPadding_:(id)value
@@ -91,7 +98,6 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
 -(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
-
     if(colorsToQuery == nil){
         if(_debug){
             NSLog(@"[DEBUG] findForColor: No colors, default color returned index %d",index);
@@ -215,7 +221,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
 - (UIColor *)barChartView:(JBBarChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index
 {
-    return [self findForColor:index withColorArray:_barColors withDefaultColor:[UIColor blueColor]];
+    return [self findForColor:index withColorArray:_barColors withDefaultColor:_defaultBarColor];
 }
 
 - (UIColor *)barSelectionColorForBarChartView:(JBBarChartView *)barChartView
@@ -235,7 +241,6 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
     return _barCount;
 }
-
 
 - (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSUInteger)index touchPoint:(CGPoint)touchPoint
 {
@@ -281,7 +286,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
         id backgroundColor = [self.proxy valueForUndefinedKey:@"chartBackgroundColor"];
         if(backgroundColor == nil){
-            self.barChart.backgroundColor = kJBColorLineChartBackground;
+            self.barChart.backgroundColor = [UIColor whiteColor];
         }else{
             TiColor *newColor = [TiUtils colorValue:backgroundColor];
             UIColor *clr = [newColor _color];
