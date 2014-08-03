@@ -4,8 +4,9 @@ var win = Ti.UI.createWindow({
 });
 
 var data =[
-	{title:"Line Chart", hasChild:true, itemId:0},
-	{title:"Area Chart", hasChild:true, itemId:1}
+	{title:"Bar Chart", hasChild:true, itemId:0},
+	{title:"Line Chart", hasChild:true, itemId:1},
+	{title:"Area Chart", hasChild:true, itemId:2}
 ];
 
 var tableView = Ti.UI.createTableView({
@@ -15,9 +16,12 @@ win.add(tableView);
 
 tableView.addEventListener('click',function(e){
 	if(e.rowData.itemId===0){
-		tabGroup.activeTab.open(require('line_chart').createWindow());
+		tabGroup.activeTab.open(require('bar_chart').createWindow());
 	}
 	if(e.rowData.itemId===1){
+		tabGroup.activeTab.open(require('line_chart').createWindow());
+	}
+	if(e.rowData.itemId===2){
 		tabGroup.activeTab.open(require('area_chart').createWindow());
 	}				
 });

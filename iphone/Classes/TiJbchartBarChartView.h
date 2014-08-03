@@ -17,9 +17,9 @@
 @interface TiJbchartBarChartView : TiUIView<JBBarChartViewDelegate, JBBarChartViewDataSource>{
 @private
     UIColor * _selectionBarColor;
-    CGFloat _barWidth;
     float _barCount;
     float _barPadding;
+    BOOL _debug;
 }
 
 @property (nonatomic, strong) JBChartTooltipView *tooltipView;

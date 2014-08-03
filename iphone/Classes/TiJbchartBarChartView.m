@@ -25,6 +25,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 -(void)initializeState
 {
 	[super initializeState];
+    _debug = NO;
     _selectionBarColor = [UIColor whiteColor];
     _barCount = 1;
     _barPadding = kJBBarChartViewControllerBarPadding;
@@ -36,6 +37,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _chartData = [NSArray arrayWithArray:value];
+    _barCount = [_chartData count];
 }
 
 -(void)setToolTipData_:(id)value
@@ -68,23 +70,39 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 -(BOOL) hasToolTip:(NSUInteger)index
 {
     if(_tooltipData == nil){
+        if(_debug){
+            NSLog(@"[DEBUG] No Tip Data");
+        }
         return NO;
     }
 
     if(([_tooltipData count] == 0)||([_tooltipData count] < (index+1))){
+        if(_debug){
+            NSLog(@"[DEBUG] No Tip Data");
+        }
         return NO;
     }
 
+    if(_debug){
+        NSLog(@"[DEBUG] Has Tip Data");
+    }
     return YES;
 }
 
 -(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
 {
+
     if(colorsToQuery == nil){
+        if(_debug){
+            NSLog(@"[DEBUG] findForColor: No colors, default color returned index %d",index);
+        }
         return defColor;
     }
 
     if(([colorsToQuery count] == 0)||([colorsToQuery count] < (index+1))){
+        if(_debug){
+            NSLog(@"[DEBUG] findForColor: Out of Range, default color returned index %d",index);
+        }
         return defColor;
     }
 
@@ -195,18 +213,6 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
     return [[self.chartData objectAtIndex:index] floatValue];
 }
 
-#pragma mark - JBBarChartViewDataSource
-
-- (NSUInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
-{
-    return _barCount;
-}
-
-- (NSUInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
-{
-    return _barPadding;
-}
-
 - (UIColor *)barChartView:(JBBarChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index
 {
     return [self findForColor:index withColorArray:_barColors withDefaultColor:[UIColor blueColor]];
@@ -216,6 +222,20 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
     return _selectionBarColor;
 }
+
+- (NSUInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
+{
+    return _barPadding;
+}
+
+
+#pragma mark - JBBarChartViewDataSource
+
+- (NSUInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
+{
+    return _barCount;
+}
+
 
 - (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSUInteger)index touchPoint:(CGPoint)touchPoint
 {
@@ -233,9 +253,10 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 	}
 }
 
-- (void)didUnselectBarChartView:(JBBarChartView *)barChartView
+- (void)didDeselectBarChartView:(JBBarChartView *)barChartView
 {
     [self setTooltipVisible:NO animated:YES];
+    
     if ([self.proxy _hasListeners:@"unselected"]) {
 		NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
                                NUMBOOL(YES),@"success",
@@ -256,9 +277,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
         self.barChart.delegate = self;
         self.barChart.dataSource = self;
         self.barChart.headerPadding =kJBBarChartViewControllerChartHeaderPadding;
-
-        id barCount = [self.proxy valueForUndefinedKey:@"barCount"];
-        _barCount = [TiUtils floatValue:barCount];
+        self.barChart.minimumValue = 0.0f;
 
         id backgroundColor = [self.proxy valueForUndefinedKey:@"chartBackgroundColor"];
         if(backgroundColor == nil){
@@ -273,7 +292,6 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
         [self.barChart reloadData];
 	}
 
-
     return self.barChart;
 }
 
@@ -281,6 +299,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
 {
     [TiUtils setView:self.chartView positionRect:bounds];
+    [self.chartView setState:JBChartViewStateExpanded];
 }
 
 

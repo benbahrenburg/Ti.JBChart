@@ -18,10 +18,10 @@
 -(NSArray *)keySequence
 {
     return [NSArray arrayWithObjects:
+            @"barColors",
             @"data",
             @"toolTipData",
             @"selectionBarColor",
-            @"barColors",
             @"barPadding",
             nil];
 }
