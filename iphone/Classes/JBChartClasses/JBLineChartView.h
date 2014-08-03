@@ -22,13 +22,13 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 	JBLineChartViewLineStyleDashed
 };
 
-@protocol JBLineChartViewDelegate;
 @protocol JBLineChartViewDataSource;
+@protocol JBLineChartViewDelegate;
 
 @interface JBLineChartView : JBChartView
 
-@property (nonatomic, weak) id<JBLineChartViewDelegate> delegate;
 @property (nonatomic, weak) id<JBLineChartViewDataSource> dataSource;
+@property (nonatomic, weak) id<JBLineChartViewDelegate> delegate;
 
 /**
  *  Vertical highlight overlayed on a line graph during touch events.
@@ -45,48 +45,6 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  Default: YES.
  */
 @property (nonatomic, assign) BOOL showsLineSelection;
-
-@end
-
-@protocol JBLineChartViewDelegate <NSObject>
-
-@required
-
-/**
- *  Vertical value for a line point at a given index (left to right). There is no ceiling on the the height;
- *  the chart will automatically normalize all values between the overal min and max heights.
- *
- *  @param lineChartView    The line chart object requesting this information.
- *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).
- *  @param lineIndex        An index number identifying the closest line in the chart to the current touch point.
- *
- *  @return The y-axis value of the supplied line index (x-axis)
- */
-- (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex;
-
-@optional
-
-/**
- *  Occurs whenever there is a touch gesture on the chart (chart must be expanded).
- *  The horizontal index is the closest index to the touch point & is clamped to it's max/min value if it moves outside of the view's bounds.
- *  The lineIndex remains constant until the line is unselected and will be highlighted using the (optional) selectionColorForLineAtLineIndex: protocol. 
- *  Futhermore, all other lines that aren't selected will be dimmed to 20%% opacity throughout the duration of the touch/move. Any dotted line that isn't the
- *  primary selection will have it's dots dimmed to hidden (to avoid transparency issues).
- *
- *  @param lineChartView    A line chart object informing the delegate about the new selection.
- *  @param lineIndex        An index number identifying the closest line in the chart to the current touch
- *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).point.
- *  @param touchPoint       The touch point in relation to the chart's bounds (excludes footer and header).
- */
-- (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint;
-- (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex;
-
-/**
- *  Occurs when selection ends by ending a touch event. For selection start events, see: didSelectChartAtIndex:
- *
- *  @param lineChartView    A line chart object informing the delegate about the unselection.
- */
-- (void)didUnselectLineInLineChartView:(JBLineChartView *)lineChartView;
 
 @end
 
@@ -114,6 +72,74 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex;
 
 @optional
+
+/**
+ *  Returns whether or not a line should show a dot for each point.
+ *  Dot size is relative to the line width and not adjustable.
+ *  Dot color is equal to the line color and not adjustable.
+ *
+ *  Default: NO
+ *
+ *  @param lineChartView    The line chart object requesting this information.
+ *  @param lineIndex        An index number identifying a line in the chart.
+ *
+ *  @return Whether or not a line should show a dot for each chart point.
+ */
+- (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex;
+
+/**
+ *  Returns whether or not a line should be rendered with curved connections and rounded end caps.
+ *
+ *  Default: NO
+ *
+ *  @param lineChartView    The line chart object requesting this information.
+ *  @param lineIndex        An index number identifying a line in the chart.
+ *
+ *  @return Whether or not a line should smooth it's connections and end caps.
+ */
+- (BOOL)lineChartView:(JBLineChartView *)lineChartView smoothLineAtLineIndex:(NSUInteger)lineIndex;
+
+@end
+
+@protocol JBLineChartViewDelegate <NSObject>
+
+@required
+
+/**
+ *  Vertical value for a line point at a given index (left to right). There is no ceiling on the the height;
+ *  the chart will automatically normalize all values between the overal min and max heights.
+ *
+ *  @param lineChartView    The line chart object requesting this information.
+ *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).
+ *  @param lineIndex        An index number identifying the closest line in the chart to the current touch point.
+ *
+ *  @return The y-axis value of the supplied line index (x-axis)
+ */
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex;
+
+@optional
+
+/**
+ *  Occurs whenever there is a touch gesture on the chart (chart must be expanded).
+ *  The horizontal index is the closest index to the touch point & is clamped to it's max/min value if it moves outside of the view's bounds.
+ *  The lineIndex remains constant until the line is deselected and will be highlighted using the (optional) selectionColorForLineAtLineIndex: protocol.
+ *  Futhermore, all other lines that aren't selected will be dimmed to 20%% opacity throughout the duration of the touch/move. Any dotted line that isn't the
+ *  primary selection will have it's dots dimmed to hidden (to avoid transparency issues).
+ *
+ *  @param lineChartView    A line chart object informing the delegate about the new selection.
+ *  @param lineIndex        An index number identifying the closest line in the chart to the current touch
+ *  @param horizontalIndex  The 0-based horizontal index of a selection point (left to right, x-axis).point.
+ *  @param touchPoint       The touch point in relation to the chart's bounds (excludes footer and header).
+ */
+- (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint;
+- (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex;
+
+/**
+ *  Occurs when selection ends by ending a touch event. For selection start events, see: didSelectChartAtIndex:
+ *
+ *  @param lineChartView    A line chart object informing the delegate about the deselection.
+ */
+- (void)didDeselectLineInLineChartView:(JBLineChartView *)lineChartView;
 
 /**
  *  Returns the color of particular line at lineIndex within the chart.
@@ -169,7 +195,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 /**
  *  Returns the radius of all dots in a particular line at lineIndex within the chart.
  *  For this value to apply, showsDotsForLineAtLineIndex: must return YES for the line at lineIndex.
- *  Any value can be returned for lineIndex's that don't support dots, as it will never be called. 
+ *  Any value can be returned for lineIndex's that don't support dots, as it will never be called.
  *
  *  Default: line width x 3.
  *
@@ -182,7 +208,7 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
 
 /**
  *  Returns the width of the (vertical) selection view to be overlayed on the chart during touch events.
- *  The property showsVerticalSelection must be YES for the width to apply. The width is clamped to the 
+ *  The property showsVerticalSelection must be YES for the width to apply. The width is clamped to the
  *  maxmimum width of the chart's bounds.
  *
  *  Default: 20px.
@@ -258,31 +284,5 @@ typedef NS_ENUM(NSInteger, JBLineChartViewLineStyle){
  *  @return The line style to be used to draw a line in the chart.
  */
 - (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex;
-
-/**
- *  Returns whether or not a line should show a dot for each point.
- *  Dot size is relative to the line width and not adjustable.
- *  Dot color is equal to the line color and not adjustable.
- *
- *  Default: NO
- *
- *  @param lineChartView    The line chart object requesting this information.
- *  @param lineIndex        An index number identifying a line in the chart.
- *
- *  @return Whether or not a line should show a dot for each chart point.
- */
-- (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex;
-
-/**
- *  Returns whether or not a line should be rendered with curved connections and rounded end caps.
- *
- *  Default: NO
- *
- *  @param lineChartView    The line chart object requesting this information.
- *  @param lineIndex        An index number identifying a line in the chart.
- *
- *  @return Whether or not a line should smooth it's connections and end caps.
- */
-- (BOOL)lineChartView:(JBLineChartView *)lineChartView smoothLineAtLineIndex:(NSUInteger)lineIndex;
 
 @end
