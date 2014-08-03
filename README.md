@@ -112,6 +112,14 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 
 <b>fillColors </b><i>optional - Array of Colors</i> : This property sets the color of the fill of the area chart data point. This is an array, with a value for each data source index provided, but default this is green.
 
+<b>defaultSelectedLineColors </b><i>optional - Color</i> : This property sets the default color used for the outline of the selected area, by default this is blue.
+
+<b>defaultSelectedAreaColors </b><i>optional -  Color</i> : This property sets the default color used for the selected area, by default this is blue.
+
+<b>defaultLineColors </b><i>optional - Color</i> : This property sets default area outline color to be used unless otherwise specified, by default this is green.
+
+<b>defaultFillColors </b><i>optional - Color</i> : This property sets default area fill color to be used unless otherwise specified, by default this is green.
+
 <b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Area Chart.  By default this style is CHART_AREA_SMOOTH.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
