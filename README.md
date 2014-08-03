@@ -183,9 +183,13 @@ The <b>LineChartView</b> creates a line chart from an array datasource you provi
 
 <b>selectedLineColors </b><i>optional - Array of Colors</i> : This property sets the color of the line when it is selected by the user. This is an array, the index of the selected chart item will determine what color is applied, by default this is blue.  See example for a reference on how this is implemented.
 
-<b>lineColors </b><i>optional - Array of Colors</i> : This property sets the color of the outline of the line chart data point.This is an array, with a value for each data source index provided, but default this is green.
+<b>lineColors </b><i>optional - Array of Colors</i> : This property sets the color of the line in the chart.This is an array, with a value for each data source index provided, but default this is green.
 
-<b>lineWidths </b><i>optional - Array of floats</i> : This property sets the line width for each line on the chart. This is an array, with a value for each data source index provided, but default this is 1.
+<b>lineWidths </b><i>optional - Array of floats</i> : This property sets the line width for each line on the chart. This is an array, with a value for each data source index provided, but default this is 6.
+
+<b>defaultLineColor </b><i>optional - Color</i> : This property sets the default color the line unless otherwise specified, by default this is green.
+
+<b>defaultLineWidth </b><i>optional - float</i> : This property sets the line width unless otherwise specified, by default this is 6.
 
 <b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Line Chart.  By default this style is CHART_LINE_SOLID.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
 
