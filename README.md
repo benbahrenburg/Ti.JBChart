@@ -80,8 +80,7 @@ For a complete example, please visit [bar chart in examples](https://github.com/
 	var barChart = chart.createBarChartView({
 		width:Ti.UI.FILL, height:250, 
 		data : data,
-		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'],
+		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
 		barColors:colors,
 		selectionBarColor:'yellow',
 		chartBackgroundColor:'#404041'
@@ -92,6 +91,19 @@ For a complete example, please visit [bar chart in examples](https://github.com/
 
 <b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
 
+<b>Reload Example</b>
+~~~
+	data.length = 0; //Reset data collection
+	for (var iLoop=0;iLoop<12;iLoop++){
+		data.push(createRandom(1,20));
+	}	
+	//Change the Tool Tip Data
+	barChart.setToolTipData(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
+	//Update the data
+	barChart.setData(data);
+	//Reload the chart data
+	barChart.reloadData();
+~~~
 
 <h4>Events</h4>
 
@@ -174,8 +186,7 @@ For a complete example, please visit [area chart in examples](https://github.com
 	var areaChart = chart.createAreaChartView({
 		width:Ti.UI.FILL, height:250, 
 		data : data,
-		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'],
+		toolTipData : ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
 		selectedLineColors :['yellow','orange'],
 		selectedFillColors :['yellow','orange'],
 		fillColors:['green','blue'],
@@ -188,6 +199,17 @@ For a complete example, please visit [area chart in examples](https://github.com
 <h4>Methods</h4>
 
 <b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+<b>Reload Example</b>
+~~~
+	data.length = 0; //Reset the data collection
+	data.push(createData()); //Create a new collection for our first chart
+	data.push(createData()); //Create a new collection for our second chart
+	//Update the Tool Tip Data
+	areaChart.setToolTipData(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);		
+	areaChart.setData(data); //Update with new data
+	areaChart.reloadData(); //Reload Data
+~~~
 
 <h4>Events</h4>
 
@@ -263,7 +285,7 @@ For a complete example, please visit [line chart in examples](https://github.com
 	var lineChart = chart.createLineChartView({
 		width:Ti.UI.FILL, height:250, 
 		data : data,
-		toolTipData : [['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+		toolTipData : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
 		selectedLineColors :['yellow','orange'],
 		lineColors:['green','blue'],
 		styles : myStyles,
@@ -275,6 +297,17 @@ For a complete example, please visit [line chart in examples](https://github.com
 <h4>Methods</h4>
 
 <b>reloadData</b> : The reloadData is called after the chart has been rendered to reload the data provided to the views <b>data</b> property.
+
+<b>Reload Example</b>
+~~~
+	data.length = 0; //Reset the data collection
+	data.push(createData()); //Create a new collection for our first chart
+	data.push(createData()); //Create a new collection for our second chart
+	//Update the Tool Tip Data
+	lineChart.setToolTipData(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);		
+	lineChart.setData(data); //Update with new data
+	lineChart.reloadData(); //Reload Data
+~~~
 
 <h4>Events Example</h4>
 ~~~

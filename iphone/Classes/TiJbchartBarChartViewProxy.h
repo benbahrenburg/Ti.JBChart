@@ -12,7 +12,6 @@
 #import "TiViewProxy.h"
 
 @interface TiJbchartBarChartViewProxy : TiViewProxy {
-
 }
 
 @end

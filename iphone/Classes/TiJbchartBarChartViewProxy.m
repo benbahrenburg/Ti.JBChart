@@ -26,6 +26,7 @@
             nil];
 }
 
+
 -(void)reloadData:(id)unused
 {
   	if ([self viewAttached])
@@ -33,5 +34,6 @@
 		TiThreadPerformOnMainThread(^{[(TiJbchartBarChartView*)[self view] reloadData:unused];}, NO);
 	}
 }
+
 
 @end

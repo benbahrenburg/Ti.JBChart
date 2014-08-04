@@ -44,7 +44,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 -(void)reloadData:(id)unused
 {
-    [self.lineChart reloadData];
+    [self.chartView reloadData];
 }
 
 -(void)setSelectionBarColor_:(id)color

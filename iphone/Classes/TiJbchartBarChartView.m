@@ -37,14 +37,14 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 -(void)setData_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
-    _chartData = [NSArray arrayWithArray:value];
-    _barCount = [_chartData count];
+    self.chartData = [NSArray arrayWithArray:value];
+    _barCount = [self.chartData count];
 }
 
 -(void)setToolTipData_:(id)value
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
-    _tooltipData = [NSArray arrayWithArray:value];
+    self.tooltipData = [NSArray arrayWithArray:value];
 }
 
 -(void)setSelectionBarColor_:(id)color
@@ -216,7 +216,11 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
 - (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSUInteger)index
 {
-    return [[self.chartData objectAtIndex:index] floatValue];
+    if([[self.chartData objectAtIndex:index] floatValue] < 0){
+        return 0;
+    }else{
+        return [[self.chartData objectAtIndex:index] floatValue];
+    }
 }
 
 - (UIColor *)barChartView:(JBBarChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index
