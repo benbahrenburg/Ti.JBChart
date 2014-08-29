@@ -23,39 +23,40 @@ exports.createWindow = function(){
 	var win = Ti.UI.createWindow({
 		backgroundColor:'#404041',barColor:"#000",
 		title:"Line Chart Demo", 
+		orientationModes: [Ti.UI.PORTRAIT,Ti.UI.UPSIDE_PORTRAIT,Ti.UI.LANDSCAPE_LEFT,Ti.UI.LANDSCAPE_RIGHT ],
 		titleAttributes:  {
 	        color:'#fff'
-	    },
-		layout:'horizontal'
+	   },
+	   layout: "vertical"
 	});
 		
 	fakeData.push(getRandomData());
 	fakeData.push(getRandomData());
 	
 	win.add(Ti.UI.createLabel({
-		top:0, height:35,width:Ti.UI.FILL,
-		text:'Rainfall Average Demo',
+		top:0, height:Ti.UI.SIZE,width:Ti.UI.FILL,
+		text:'Rotate your device',
 		textAlign:'center', color:'#fff',
 		font:{
-			fontSize:24,
+			fontSize:16,
 			fontWeight:'bold'
 		}		
 	}));
 			
 	var lineChart = chart.createLineChartView({
-		width:Ti.UI.FILL, height:250, top:50,
+		width:Ti.UI.FILL, height:200, top:10,
 		data : fakeData,
 		toolTipData : weekdays,
 		styles :[chart.CHART_LINE_SOLID,chart.CHART_LINE_DASHED],
 		selectedLineColors :['yellow','orange'],
 		lineColors:['green','blue'],
 		selectionBarColor:'#fff',
-		chartBackgroundColor:'#404041'
+		chartBackgroundColor:'#505051'
 	});
 	win.add(lineChart);
 
 	var infoView = Ti.UI.createView({
-		left:10, right:10, top:25, height:150
+		left:10, right:10, top:20, height:150
 	});
 	win.add(infoView);
 	
