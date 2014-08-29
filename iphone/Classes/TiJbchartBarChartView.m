@@ -30,6 +30,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
     _selectionBarColor = [UIColor whiteColor];
     _barCount = 1;
     _barPadding = kJBBarChartViewControllerBarPadding;
+    _autoRelayoutChartOnOrientationChange = YES;
 }
 
 #pragma mark - Property Section
@@ -70,6 +71,12 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
 	ENSURE_TYPE_OR_NIL(value,NSNumber);
     _barPadding = [value floatValue];
+}
+
+-(void)setAutoRelayoutChartOnOrientationChange_:(id)value
+{
+    ENSURE_SINGLE_ARG(value,NSNumber);
+    _autoRelayoutChartOnOrientationChange = [value boolValue];
 }
 
 #pragma mark - Helper Section
@@ -299,6 +306,12 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
 		[self addSubview:self.barChart];
         [self.barChart reloadData];
+        
+        // add a orientation listener
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(orientationDidChange:)
+                                                     name: UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object: nil];
 	}
 
     return self.barChart;
@@ -309,6 +322,14 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 {
     [TiUtils setView:self.chartView positionRect:bounds];
     [self.chartView setState:JBChartViewStateExpanded];
+}
+
+- (void) orientationDidChange:(NSNotification *)note
+{
+    //update the chart view
+    if(_autoRelayoutChartOnOrientationChange){
+        TiThreadPerformOnMainThread(^{[self.barChart reloadData];}, NO);
+    }
 }
 
 

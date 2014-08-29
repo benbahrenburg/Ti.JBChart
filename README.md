@@ -59,6 +59,8 @@ The <b>BarChartView</b> creates a bar chart from an array datasource you provide
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
 
+<b>autoRelayoutChartOnOrientationChange </b><i>optional - Bool</i> : This property sets the behaviour when orientation change occurs. By default the graph will redraw itself.
+
 
 <h4>View Example</h4>
 
@@ -154,6 +156,8 @@ The <b>AreaChartView</b> creates a area chart from an array datasource you provi
 <b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Area Chart.  By default this style is CHART_AREA_SMOOTH.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
+
+<b>autoRelayoutChartOnOrientationChange </b><i>optional - Bool</i> : This property sets the behaviour when orientation change occurs. By default the graph will redraw itself.
 
 <h4>View Example</h4>
 
@@ -253,6 +257,8 @@ The <b>LineChartView</b> creates a line chart from an array datasource you provi
 <b>styles </b><i>optional - Array of Styles</i> : This property sets the style of the Line Chart.  By default this style is CHART_LINE_SOLID.  This can be changed by providing an array of styles, one for each chart data source provided.  See example for a reference on how this is implemented.
 
 <b>chartBackgroundColor </b><i>optional - Color</i> : This property sets the backgroundColor of the chart, which is by default white.  This property can only be set at creation time.
+
+<b>autoRelayoutChartOnOrientationChange </b><i>optional - Bool</i> : This property sets the behaviour when orientation change occurs. By default the graph will redraw itself.
 
 <h4>View Example</h4>
 

@@ -27,6 +27,7 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _defaultSelectedLineColor = [UIColor blueColor];
     _defaultLineColor = [UIColor greenColor];
     _defaultLineWidth = 6.0f;
+    _autoRelayoutChartOnOrientationChange = YES;
 }
 
 -(BOOL)hasToolTip:(NSUInteger)index
@@ -106,6 +107,12 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 {
     ENSURE_SINGLE_ARG(value,NSNumber);
     _defaultLineWidth = [value floatValue];
+}
+
+-(void)setAutoRelayoutChartOnOrientationChange_:(id)value
+{
+    ENSURE_SINGLE_ARG(value,NSNumber);
+    _autoRelayoutChartOnOrientationChange = [value boolValue];
 }
 
 -(UIColor *)findForColor:(NSUInteger)index withColorArray:(NSArray*)colorsToQuery withDefaultColor:(UIColor *) defColor
@@ -369,6 +376,12 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 
 		[self addSubview:self.lineChart];
         [self.lineChart reloadData];
+        
+        // add a orientation listener
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(orientationDidChange:)
+                                                     name: UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object: nil];
 	}
 
     return self.lineChart;
@@ -377,6 +390,14 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
 {
     [TiUtils setView:self.chartView positionRect:bounds];
+}
+
+- (void) orientationDidChange:(NSNotification *)note
+{
+    //update the chart view
+    if(_autoRelayoutChartOnOrientationChange){
+        TiThreadPerformOnMainThread(^{[self.lineChart reloadData];}, NO);
+    }
 }
 
 @end

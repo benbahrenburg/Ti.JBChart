@@ -35,6 +35,7 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     _defaultSelectedAreaColor = [UIColor blueColor];
     _defaultLineColor = [UIColor greenColor];
     _defaultFillColor = [UIColor greenColor];
+    _autoRelayoutChartOnOrientationChange = YES;
 }
 
 #pragma mark - Property Section
@@ -117,6 +118,12 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 {
 	ENSURE_TYPE_OR_NIL(value,NSArray);
     _areaStyles = [NSArray arrayWithArray:value];
+}
+
+-(void)setAutoRelayoutChartOnOrientationChange_:(id)value
+{
+    ENSURE_SINGLE_ARG(value,NSNumber);
+    _autoRelayoutChartOnOrientationChange = [value boolValue];
 }
 
 #pragma mark - Helper Section
@@ -383,6 +390,12 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 
 		[self addSubview:self.lineChart];
         [self.lineChart reloadData];
+        
+        // add a orientation listener
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(orientationDidChange:)
+                                                     name: UIApplicationDidChangeStatusBarOrientationNotification
+                                                   object: nil];
 	}
 
     return self.lineChart;
@@ -391,6 +404,14 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
 -(void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
 {
     [TiUtils setView:self.chartView positionRect:bounds];
+}
+
+- (void) orientationDidChange:(NSNotification *)note
+{
+    //update the chart view
+    if(_autoRelayoutChartOnOrientationChange){
+        TiThreadPerformOnMainThread(^{[self.lineChart reloadData];}, NO);
+    }
 }
 
 @end
