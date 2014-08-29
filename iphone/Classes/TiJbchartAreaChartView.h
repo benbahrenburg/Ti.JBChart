@@ -22,6 +22,7 @@
     UIColor * _defaultSelectedAreaColor;
     UIColor * _defaultLineColor;
     UIColor * _defaultFillColor;
+    BOOL _autoRelayoutChartOnOrientationChange;
 }
 @property (nonatomic, strong) JBChartTooltipView *tooltipView;
 @property (nonatomic, strong) JBChartTooltipTipView *tooltipTipView;

@@ -19,6 +19,7 @@
     UIColor * _selectionBarColor;
     UIColor * _defaultSelectedLineColor;
     UIColor * _defaultLineColor;
+    BOOL _autoRelayoutChartOnOrientationChange;
     float _defaultLineWidth;
 }
 

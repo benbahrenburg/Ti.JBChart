@@ -20,6 +20,7 @@
     UIColor * _defaultBarColor;
     float _barCount;
     float _barPadding;
+    BOOL _autoRelayoutChartOnOrientationChange;
     BOOL _debug;
 }
 
