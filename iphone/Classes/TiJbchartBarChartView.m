@@ -33,6 +33,14 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
     _autoRelayoutChartOnOrientationChange = YES;
 }
 
+-(void)removeFromSuperview
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
+    [super removeFromSuperview];
+}
+
 #pragma mark - Property Section
 
 -(void)setData_:(id)value
@@ -221,7 +229,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
 
 #pragma mark - JBBarChartViewDelegate
 
-- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSUInteger)index
+- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtIndex:(NSUInteger)index
 {
     if([[self.chartData objectAtIndex:index] floatValue] < 0){
         return 0;
@@ -240,7 +248,7 @@ CGFloat const kJBBarAnimationDuration = 0.25f;
     return _selectionBarColor;
 }
 
-- (NSUInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
+- (CGFloat)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {
     return _barPadding;
 }

@@ -7,9 +7,7 @@
 //
 
 #import "JBChartTooltipTipView.h"
-#import <UIKit/UIKit.h>
 #import "JBConstants.h"
-
 // Numerics
 CGFloat const kJBChartTooltipTipViewDefaultWidth = 8.0f;
 CGFloat const kJBChartTooltipTipViewDefaultHeight = 5.0f;

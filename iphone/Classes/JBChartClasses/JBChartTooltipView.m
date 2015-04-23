@@ -7,10 +7,9 @@
 //
 
 #import "JBChartTooltipView.h"
-
+#import "JBConstants.h"
 // Drawing
 #import <QuartzCore/QuartzCore.h>
-#import "JBConstants.h"
 
 // Numerics
 CGFloat static const kJBChartTooltipViewCornerRadius = 5.0;

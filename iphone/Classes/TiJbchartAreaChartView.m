@@ -38,6 +38,15 @@ CGFloat const kJBAreaAnimationDuration = 0.25f;
     _autoRelayoutChartOnOrientationChange = YES;
 }
 
+-(void)removeFromSuperview
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
+    [super removeFromSuperview];
+}
+
+
 #pragma mark - Property Section
 
 -(void)setBarWidth_:(id)value

@@ -30,6 +30,15 @@ CGFloat const kJBLineAnimationDuration = 0.25f;
     _autoRelayoutChartOnOrientationChange = YES;
 }
 
+-(void)removeFromSuperview
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidChangeStatusBarOrientationNotification
+                                                  object:nil];
+    [super removeFromSuperview];
+}
+
+
 -(BOOL)hasToolTip:(NSUInteger)index
 {
     if(_tooltipData == nil){

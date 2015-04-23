@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
 @interface JBChartTooltipTipView : UIView
 
 @end

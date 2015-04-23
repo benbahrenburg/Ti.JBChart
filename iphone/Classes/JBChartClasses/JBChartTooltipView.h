@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
 @interface JBChartTooltipView : UIView
 
 - (void)setText:(NSString *)text;
